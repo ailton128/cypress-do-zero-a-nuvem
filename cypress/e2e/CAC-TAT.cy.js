@@ -96,7 +96,8 @@ it('seleciona um produto (Blog) por seu índice',()=>{
   .select( 1 )
   .should('have.value','blog')
 })
-it.only('marca o tipo de atendimento "Feedback"',()=>{
+///
+it('marca o tipo de atendimento "Feedback"',()=>{
   cy.get('input[type="radio"][value="feedback"]')
   .check() 
 })
