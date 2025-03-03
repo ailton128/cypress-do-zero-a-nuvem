@@ -1,4 +1,4 @@
-const { CypressTestComponentRenderer } = require("cypress/angular")
+const { expect } = require("chai")
 
 describe('Central de Atendimento ao Cliente TAT', () => {
   beforeEach(( )=>{
@@ -39,7 +39,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
    cy.get('#lastName').type('silva ')
    cy.get('#email').type('ailton240625@gmail,com ')
    cy.get('#open-text-area').type('Teste')
-   cy.get('[for="phone-checkbox"]').click()
+   cy.get('#phone-checkbox').check()
    cy.contains('button', 'Enviar').click()
    
    cy.get('.error').should('be.visible')
@@ -96,10 +96,34 @@ it('seleciona um produto (Blog) por seu índice',()=>{
   .select( 1 )
   .should('have.value','blog')
 })
-///
 it('marca o tipo de atendimento "Feedback"',()=>{
   cy.get('input[type="radio"][value="feedback"]')
   .check() 
+  .should('be.checked')
+})
+it('marca cada tipo de atendimento',() => { 
+  cy.get('input[type="radio"]')
+  .each(typeOfService => {
+    cy.wrap(typeOfService)
+    .check()
+    .should('be.checked')
+  })
+})
+it(' marca ambos checkboxes, depois desmarca o último ',() => {
+  cy.get('input[type="checkbox"]')
+  .check()
+  .should('be.checked')
+  .last()
+  .uncheck()
+  .should('not.be.checked')
+})
+
+it.only('seleciona um arquivo da pasta fixtures', () => {
+  cy.get('#file-upload')
+  .selectFile('cypress/fixtures/example.json')
+  .should(input =>  {
+    expect(input[0].files[0].name).to.equal('example.json')
+  })
 })
   })
    
