@@ -1,8 +1,8 @@
-# h1 cypress-do-zero-a-Nuvem 
+# cypress-do-zero-a-Nuvem 
 
  sample project for the "Cypress,from zero to the Cloud" course of the talking About Testing online school.
 
- ##  Pre-requirements 
+ ## Pre-requirements 
 
  It is required to have git, Node.js and npm installed to clone and run this project.
 
@@ -16,7 +16,7 @@
 
  In this project, you can run the tests on a desktop or mobile viewport
 
- ### h5 Desktop 
+ ### Desktop 
 
  Run 'npm test' (or 'npm t' for the short version) to run the test in viwport.
 
