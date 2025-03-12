@@ -69,7 +69,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
    .should('have.value','123456789')
    .clear()
    .should('have.value','')
- }) // EXERCICO EXTRA 6 
+ })
   it(' exibe mensagem de erro ao submeter o formulário sem preencher os campos obrigatórios',()=>{
      
     cy.contains('button', 'Enviar').click()
